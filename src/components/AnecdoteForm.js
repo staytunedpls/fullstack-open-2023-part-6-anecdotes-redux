@@ -1,4 +1,4 @@
-import { createAnecdoteAction } from "../reducers/anecdoteReducer";
+import { create } from "../reducers/anecdoteReducer";
 import { useDispatch } from "react-redux";
 
 const AnecdoteForm = () => {
@@ -8,7 +8,7 @@ const AnecdoteForm = () => {
     const content = event.target.anecdote.value;
     event.target.anecdote.value = "";
     if (content.length > 0) {
-      return dispatch(createAnecdoteAction(content));
+      return dispatch(create(content));
     }
   };
   return (
