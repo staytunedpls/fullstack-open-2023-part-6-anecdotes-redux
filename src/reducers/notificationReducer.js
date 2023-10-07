@@ -8,10 +8,17 @@ const notificationSlice = createSlice({
       return action.payload;
     },
     hide(state, action) {
-      return ""
-    }
+      return "";
+    },
   },
 });
+
+export const setNotification = (message, time) => {
+  return (dispatch) => {
+    dispatch(notify(message));
+    setTimeout(() => dispatch(hide()), time);
+  };
+};
 
 export const { notify, hide } = notificationSlice.actions;
 export default notificationSlice.reducer;
